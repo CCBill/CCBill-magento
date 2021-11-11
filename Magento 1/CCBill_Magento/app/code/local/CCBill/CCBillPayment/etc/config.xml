@@ -1,0 +1,95 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category    CCBill
+ * @package     CCBill_CCBillPayment
+ * @copyright   Copyright (c) 2014-2021 CCBill (http://ccbill.com)
+ */
+-->
+<config>
+    <modules>
+       <CCBill_CCBillPayment>
+          <version>1.2.0</version>
+       </CCBill_CCBillPayment>
+    </modules>
+ 
+    <global>
+<!-- IMPORTANT: if you use your own namespace (i.e. CompanyName) you also have to declare blocks group for new module. See topic: http://www.magentocommerce.com/boards/viewthread/22416/#t102732 -->
+    <blocks>
+        <ccbillpayment>
+            <class>CCBill_CCBillPayment_Block</class>
+        </ccbillpayment>
+    </blocks>
+ 
+<!-- declare model group for new module -->
+        <models>
+<!-- model group alias to be used in Mage::getModel('newmodule/...') -->
+            <ccbillpayment>
+<!-- base class name for the model group -->
+                <class>CCBill_CCBillPayment_Model</class>
+            </ccbillpayment>
+        </models>
+ 
+<!-- declare resource setup for new module -->
+        <resources>
+<!-- resource identifier -->
+            <ccbillpayment_setup>
+<!-- specify that this resource is a setup resource and used for upgrades -->
+                <setup>
+<!-- which module to look for install/upgrade files in -->
+                    <module>CCBill_CCBillPayment</module>
+                </setup>
+<!-- specify database connection for this resource -->
+                <connection>
+<!-- do not create new connection, use predefined core setup connection -->
+                    <use>core_setup</use>
+                </connection>
+            </ccbillpayment_setup>
+            <ccbillpayment_write>
+                <connection>
+                  <use>core_write</use>
+                </connection>
+            </ccbillpayment_write>
+            <ccbillpayment_read>
+               <connection>
+                <use>core_read</use>
+              </connection>
+            </ccbillpayment_read>
+        </resources>
+        <sales>
+          <order>
+            <statuses>
+              <pending_ccbill translate="label">
+                <label>Pending CCBill</label>
+              </pending_ccbill>
+            </statuses>
+          </order>
+        </sales>
+    </global>
+ 
+<!-- declare default configuration values for this module -->
+    <default>
+        <web>
+          <routers>
+             <ccbillpayment_myrouter>
+                 <area>frontend</area>
+                 <class>CCBill_CCBillPayment_Controller_Router</class>
+             </ccbillpayment_myrouter>
+         </routers>
+        </web>
+<!-- 'payment' configuration section (tab) -->
+        <payment>
+            <ccbillpayment>
+                <active>0</active>
+<!-- model to handle logic for this payment method -->
+                <model>ccbillpayment/standard</model>
+<!-- order status for new orders paid by this payment method -->
+                <order_status>Pending</order_status>
+<!-- default title for payment checkout page and order view page -->
+                <title>Credit Card (CCBill)</title>
+                <currencycode>840</currencycode>
+                <allowspecific>0</allowspecific>
+            </ccbillpayment>
+         </payment>
+    </default>
+</config>

@@ -1,0 +1,109 @@
+<?xml version="1.0"?>
+<config>
+   <sections>
+        <payment>
+            <groups>
+                <ccbillpayment translate="label" module="paygate">
+                    <label>CC Bill</label>
+                    <expanded>1</expanded>
+                    <sort_order>1</sort_order>
+<!-- do not show this configuration options in store scope -->
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>0</show_in_store>
+                    <fields>
+<!-- is this payment method active for the website? -->
+                        <active translate="label">
+<!-- label for the field -->
+                            <label>Enabled</label>
+<!-- input type for configuration value -->
+                            <frontend_type>select</frontend_type>
+<!-- model to take the option values from -->
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+<!-- field position -->
+                            <sort_order>1</sort_order>
+<!-- do not show this field in store scope -->
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </active>
+                        <title translate="label">
+                            <label>Title</label>
+                            <comment>This is how the payment option will be displayed to customers</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </title>
+                        <order_status translate="label">
+                            <label>New order status</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_order_status_new</source_model>
+                            <sort_order>3</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </order_status>
+                        <client_account_number translate="label">
+                            <label>Client Account Number</label>
+                            <comment>Please enter your six-digit CCBill client account number; this is needed in order to take payment via CCBill.</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>4</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+
+                        </client_account_number>
+                        <client_subaccount_number translate="label">
+                            <label>Client SubAccount Number</label>
+                            <comment>Please enter your four-digit CCBill client account number; this is needed in order to take payment via CCBill.</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>5</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </client_subaccount_number>
+                        <formname translate="label">
+                            <label>FlexForm ID</label>
+                            <comment>The ID of the CCBill FlexForm used to collect payment (or form name if using classic forms).</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>6</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </formname>
+                        <is_flexform translate="label">
+                            <label>Flex Form</label>
+                            <comment>Select "yes" if using CCBill FlexForms.  Note: Only FlexForms will be supported in future versions. Classic forms are deprecated.</comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>7</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </is_flexform>
+                        <currencycode translate="label">
+                            <label>Currency Code</label>
+                            <comment>The three-digit CCBill currency code in which payments will be made.  The default value is 840 (USD).</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>8</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </currencycode>
+                        <salt translate="label">
+                            <label>Salt</label>
+                            <comment>The salt value is used by CCBill to verify the hash and can be obtained in one of two ways: (1) Contact client support and receive the salt value, OR (2) Create your own salt value (up to 32 alphanumeric characters) and provide it to client support.</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>9</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </salt>
+                    </fields>
+                </ccbillpayment>
+            </groups>
+        </payment>
+    </sections>
+</config>

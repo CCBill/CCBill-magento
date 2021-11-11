@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Magento
+ *
+ * @category    CCBill
+ * @package     CCBill_CCBillPayment
+ * @copyright   Copyright (c) 2014-2021 CCBill (ccbill.com)
+ */
+-->
+<config>
+    <modules>
+        <CCBill_CCBillPayment>
+            <active>true</active>
+            <codePool>local</codePool>
+            <depends>
+              <Mage_Payment />
+            </depends>
+        </CCBill_CCBillPayment>
+    </modules>
+</config>
